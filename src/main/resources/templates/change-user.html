@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            display: inline-block;-->
+<!--            text-align: left;-->
+<!--            padding: 50px;-->
+<!--            border: 3px solid #ccc;-->
+<!--            border-radius: 10px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        input, button {-->
+<!--            display: block;-->
+<!--            width: 100%;-->
+<!--            margin: 10px 0;-->
+<!--            padding: 10px;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            background-color: #007BFF;-->
+<!--            color: white;-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        button:hover {-->
+<!--            background-color: #0056b3;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<h2>Редактирование пользователя</h2>
+<form th:action="@{/update-user}" method="post">
+    <label for="id">Выберите ID пользователя:</label>
+    <select name="id" id="id">
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.id}"></option>
+    </select>
+
+    <br>
+
+    <label for="newFirstName">Новое имя:</label>
+    <input type="text" id="newFirstName" name="newFirstName">
+
+    <label for="newLastName">Новая фамилия:</label>
+    <input type="text" id="newLastName" name="newLastName">
+
+    <label for="newEmail">Новая почта:</label>
+    <input type="email" id="newEmail" name="newEmail">
+
+    <label for="newPassword">Новый пароль:</label>
+    <input type="password" id="newPassword" name="newPassword">
+
+    <button type="submit">Сохранить изменения</button>
+</form>
+</body>
+</html>
